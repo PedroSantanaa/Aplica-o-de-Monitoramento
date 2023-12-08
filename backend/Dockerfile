@@ -6,9 +6,11 @@ RUN apt-get update && \
 
 WORKDIR /app
 
-COPY requirements.txt requirements.txt
-RUN pip3 install -r requirements.txt
+COPY . /app
 
-COPY . .
+RUN pip install -r requirements.txt
 
-CMD ["uvicorn", "main:app"]
+EXPOSE 10000
+
+
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "10000"]
