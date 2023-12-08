@@ -5,6 +5,8 @@ RUN apt-get update && \
     apt-get -qq -y install libtesseract-dev && \
     apt-get install -y libgl1-mesa-glx
 
+RUN apt-get -qq -y install tesseract-ocr-por
+
 WORKDIR /app
 
 COPY . /app
